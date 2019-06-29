@@ -10,7 +10,7 @@ export default function projectTemp({data}){
 
   return (
     <Layout>
-      <h1>Single project</h1>
+      <h1 style={{color:'orange'}}>Single project</h1>
       {title}
       <Img fluid={fluid}/>
       <p>{description}</p>
