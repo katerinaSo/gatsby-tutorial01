@@ -8,9 +8,16 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-
+import {createGlobalStyle} from 'styled-components'
 import Header from "./header"
-import "./layout.css"
+
+
+
+const GlobalStyle=createGlobalStyle`
+body{
+font-family:Arial, Helvetica, sans-serif;
+}
+`
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -19,13 +26,16 @@ const Layout = ({ children }) => (
         site {
           siteMetadata {
             title
+            
           }
         }
       }
     `}
     render={data => (
       <>
-        <Header siteTitle={data.site.siteMetadata.title} />
+      <GlobalStyle/>
+        <Header siteTitle={data.site.siteMetadata.title }/>
+        
         <div
           style={{
             margin: `0 auto`,
@@ -36,11 +46,12 @@ const Layout = ({ children }) => (
         >
           <main>{children}</main>
           <footer>
-            © {new Date().getFullYear()}, Built with
+            © {new Date().getFullYear()}, website by
             {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
+            <a href="https://ksportfolio.netlify.com">Katya</a>
           </footer>
         </div>
+        
       </>
     )}
   />
